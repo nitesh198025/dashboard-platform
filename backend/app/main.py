@@ -1,10 +1,19 @@
 from fastapi import FastAPI
-from app.apps.analytics.router import router as analytics_router
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Dashboard Backend")
+app = FastAPI()
 
-app.include_router(analytics_router, prefix="/analytics")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://dashboard-platform-1.onrender.com",  # frontend
+        "http://localhost:5173"                        # local dev
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
-    return{"status": "Backend running"}
+    return {"status": "ok"}
