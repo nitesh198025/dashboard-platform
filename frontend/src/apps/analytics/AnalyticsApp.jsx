@@ -15,7 +15,7 @@ export default function AnalyticsApp() {
   return (
     <>
       <h2>Analytics Summary</h2>
-      <p>Orders: {data.order}</p>
+      <p>Order: {data.order}</p>
       <p>Inventory Risk: {data.inventory_risk}</p>
       <p>AI Score: {data.ai_score}</p>
     </>
