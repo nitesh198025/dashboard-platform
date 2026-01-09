@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout() {
   return (
     <div style={styles.container}>
-     
+      
       {/* Sidebar */}
       <aside style={styles.sidebar}>
         <h2 style={styles.logo}>My Dashboard</h2>
@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }) {
 
       {/* Main Content */}
       <main style={styles.main}>
-        {children}
+        <Outlet />
       </main>
 
     </div>
