@@ -3,13 +3,11 @@ import { useEffect, useState } from "react";
 export default function AnalyticsApp() {
   const [data, setData] = useState(null);
 
-  const API_BASE = import.meta.env.VITE_API_BASE_URL;
-
   useEffect(() => {
-    fetch(`${API_BASE}/analytics/summary`)
+    fetch("https://dashboard-platform.onrender.com/analytics/summary")
       .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch((err) => console.error("API error:", err));
+      .then(setData)
+      .catch(err => console.error(err));
   }, []);
 
   if (!data) return <p>Loading...</p>;
